@@ -10,4 +10,11 @@ def get_ice_cream(request,ice_cream_id):
             'ice cream shop': ice_cream.shop,
             'ice cream stock': ice_cream.stock,}
     }
-    return render(request, 'ice_cream_details.html', context)   
+    return render(request, 'ice_cream_details.html', context)
+
+def get_ice_creams(request):
+    ice_creams = IceCream.objects.all()
+    context = {
+        "ice_creams": ice_creams
+    }
+    return render(request, "ice_cream_list.html", context)
